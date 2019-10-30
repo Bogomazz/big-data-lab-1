@@ -1,0 +1,27 @@
+<mat-form-field class="wide-select">
+  <mat-label>Favorite food</mat-label>
+  <mat-select [(ngModel)]="selectedIndicator">
+    <mat-option *ngFor="let indicator of indicators" [value]="indicator.id">
+      {{indicator.name}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<div *ngFor="let country of countries; let i = index" >
+  <mat-checkbox class="example-margin" (change)="countryToggle(i)" >
+    {{country.name}}
+  </mat-checkbox>
+</div>
+
+<button mat-raised-button color="primary" (click)="displayResult()">Display</button>
+
+<div>
+  <canvas baseChart
+          [datasets]="barChartData"
+          [labels]="barChartLabels"
+          [options]="barChartOptions"
+          [plugins]="barChartPlugins"
+          [legend]="barChartLegend"
+          [chartType]="barChartType">
+  </canvas>
+</div>
